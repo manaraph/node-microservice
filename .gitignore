@@ -72,6 +72,7 @@ typings/
 .env
 .env.test
 ormconfig.json
+.DS_Store
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

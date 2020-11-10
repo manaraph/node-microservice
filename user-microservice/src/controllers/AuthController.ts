@@ -45,6 +45,25 @@ class AuthController {
     });
   };
 
+  static getAuthUser = (req: Request, res: Response) => {
+    const { token } = req.body;
+    const verifyToken = (token, cb) => jwt.verify(token,  config.jwtSecret, {}, cb);
+
+    verifyToken(token, (error, data) => {
+      if (error) {
+        return res.status(500).json({
+          status: 'error',
+          error,
+        });
+      }
+      return res.status(500).json({
+        status: 'successful',
+        data,
+      });
+      // return data;
+    });
+  };
+
   static changePassword = async (req: Request, res: Response) => {
     //Get ID from JWT
     const id = res.locals.jwtPayload.userId;

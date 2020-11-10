@@ -1,7 +1,8 @@
 {
    "name": "user-microservice",
    "version": "0.0.1",
-   "description": "Awesome project developed with TypeORM.",
+   "author": "Manasseh Omachonu <manaraph225@gmail.com>",
+   "description": "User registration, authentication and authorization microservice.",
    "devDependencies": {
       "@types/node": "^8.0.29",
       "dotenv": "^8.2.0",
