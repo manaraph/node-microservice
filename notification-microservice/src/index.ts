@@ -14,14 +14,13 @@ createConnection()
     // create express app
     const app = express();
     const PORT: number = parseInt(<string>process.env['PORT'], 10) || 3000;
-    
+
     // Call midlewares
     app.use(cors());
     app.use(helmet());
     app.use(bodyParser.json());
 
-    app.use("/", routes);
-
+    app.use('/', routes);
 
     // setup express app here
     // ...

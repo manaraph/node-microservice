@@ -6,7 +6,7 @@ export const checkRole = (roles: Array<string>) => {
     const role = res.locals.jwtPayload.role;
 
     console.log(role);
-    
+
     //Check if array of authorized roles includes the notification's role
     if (roles.indexOf(role) > -1) next();
     else res.status(401).send();

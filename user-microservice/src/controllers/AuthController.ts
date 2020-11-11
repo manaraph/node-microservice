@@ -1,10 +1,10 @@
-import { Request, Response } from "express";
-import * as jwt from "jsonwebtoken";
-import { getRepository } from "typeorm";
-import { validate } from "class-validator";
+import { Request, Response } from 'express';
+import * as jwt from 'jsonwebtoken';
+import { getRepository } from 'typeorm';
+import { validate } from 'class-validator';
 
-import { User } from "../entity/User";
-import config from "../config/config";
+import { User } from '../entity/User';
+import config from '../config/config';
 
 class AuthController {
   static login = async (req: Request, res: Response) => {
@@ -33,7 +33,7 @@ class AuthController {
     const token = jwt.sign(
       { userId: user.id, username: user.username, role: user.role },
       config.jwtSecret,
-      { expiresIn: "1h" }
+      { expiresIn: '1h' }
     );
 
     delete user.password;
@@ -47,7 +47,8 @@ class AuthController {
 
   static getAuthUser = (req: Request, res: Response) => {
     const { token } = req.body;
-    const verifyToken = (token, cb) => jwt.verify(token,  config.jwtSecret, {}, cb);
+    const verifyToken = (token, cb) =>
+      jwt.verify(token, config.jwtSecret, {}, cb);
 
     verifyToken(token, (error, data) => {
       if (error) {

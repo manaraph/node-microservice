@@ -31,5 +31,4 @@ export class Notification {
   @Column()
   @UpdateDateColumn()
   updatedAt: Date;
-
 }
