@@ -14,7 +14,7 @@ class NotificationController {
 
     // Send the notification object
     res.send(notification);
-  };
+  }
 
   static getOneById = async (req: Request, res: Response) => {
     // Get the ID from the url
@@ -29,7 +29,7 @@ class NotificationController {
     } catch (error) {
       res.status(404).send('Notification not found');
     }
-  };
+  }
 
   static newNotification = async (req: Request, res: Response) => {
     // Get parameters from the body
@@ -57,7 +57,7 @@ class NotificationController {
 
     // If all ok, send 201 response
     res.status(201).send('Notification created');
-  };
+  }
 
   static editNotification = async (req: Request, res: Response) => {
     // Get the ID from the url
@@ -96,7 +96,7 @@ class NotificationController {
     }
     // After all send a 204 (no content, but accepted) response
     res.status(204).send();
-  };
+  }
 
   static deleteNotification = async (req: Request, res: Response) => {
     // Get the ID from the url
@@ -114,7 +114,7 @@ class NotificationController {
 
     // After all send a 204 (no content, but accepted) response
     res.status(204).send();
-  };
+  }
 }
 
 export default NotificationController;
