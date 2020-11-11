@@ -19,3 +19,9 @@ Check for lint errors `npm run tslint`
 
 #### Running all services
 Install and start docker by `docker-compose up`.
+
+## TODO
+- Setup Swagger.
+- Setup Unit testing.
+- Setup Nginx server on docker.
+- Finish up Docker configuration.
