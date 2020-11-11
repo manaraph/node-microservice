@@ -33,5 +33,7 @@ createConnection()
       `Express server has started on port ${PORT}. Open http://localhost:${PORT}/users to see results`
     );
   })
-  // tslint:disable-next-line: no-console
-  .catch(error => console.log(error));
+  .catch((error) => {
+    // tslint:disable-next-line: no-console
+    console.log(error);
+  });
