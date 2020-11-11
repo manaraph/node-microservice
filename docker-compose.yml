@@ -1,0 +1,52 @@
+version: "3"
+services:
+  mysql:
+    image: "mysql:5.7.24"
+    container_name: "typeorm-mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "test"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+      MYSQL_DATABASE: "node_ms"
+
+  notification-microservice:
+    build:
+      context: "."
+      dockerfile: "./notification-microservice/Dockerfile"
+    depends_on:
+      - mysql
+    #   - user-microservice
+    #   - notification-service
+    #   - chat-service
+    # environment:
+    #   - PORT=7100
+    #   - AUTH_SERVICE_URI=http://auth-service:7100
+    #   - NOTIFICATION_SERVICE_URI=http://notification-service:7101
+    #   - CHAT_SERVICE_URI=http://chat-service:7102
+    ports:
+      - "7000:7000"
+    volumes:
+      - ./notification-microservice:/opt/app
+
+  user-microservice:
+    build:
+      context: "."
+      dockerfile: "./user-microservice/Dockerfile"
+    depends_on:
+      - mysql
+    # environment:
+    #   - DB_URI=mysql://root:password@auth-service-db/db?charset=UTF8
+    ports:
+      - "7100:7100"
+    volumes:
+      - ./user-microservice:/opt/app
+
+#   notification-service-db:
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=password
+#       - MYSQL_DATABASE=db
+#     image: mysql:5.7.20
+#     ports:
+#       - 0.0.0.0:7201:3306
