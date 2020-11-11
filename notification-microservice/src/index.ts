@@ -34,4 +34,4 @@ createConnection()
     );
   })
   // tslint:disable-next-line: no-console
-  .catch((error) => console.log(error));
+  .catch(error => console.log(error));
