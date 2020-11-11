@@ -37,10 +37,10 @@
    "scripts": {
       "build": "tsc",
       "start": "NODE_ENV=production node ./build/index.js",
-      "dev": "ts-node-dev --respawn --transpileOnly src/index.ts",
+      "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
       "start:prev": "ts-node src/index.ts",
       "tsc": "tsc",
-      "start:debug": "set debug=* && ts-node-dev --respawn --transpileOnly src/index.ts",
+      "start:debug": "set debug=* && ts-node-dev --respawn --transpile-only src/index.ts",
       "prod": "tsc && node ./build/app.js",
       "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
       "tslint:init": "tslint --init",
