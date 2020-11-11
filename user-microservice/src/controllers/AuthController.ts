@@ -31,7 +31,7 @@ class AuthController {
 
     //Sing JWT, valid for 1 hour
     const token = jwt.sign(
-      { userId: user.id, username: user.username },
+      { userId: user.id, username: user.username, role: user.role },
       config.jwtSecret,
       { expiresIn: "1h" }
     );
@@ -51,7 +51,7 @@ class AuthController {
 
     verifyToken(token, (error, data) => {
       if (error) {
-        return res.status(500).json({
+        return res.status(401).json({
           status: 'error',
           error,
         });
@@ -60,7 +60,6 @@ class AuthController {
         status: 'successful',
         data,
       });
-      // return data;
     });
   };
 
