@@ -18,7 +18,8 @@
         "class-name": true,
         "semicolon": [
             true,
-            "always"
+            "always",
+            "strict-bound-class-methods"
         ],
         "triple-equals": [
             true,
